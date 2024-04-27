@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/101/card_learning.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_application/101/image_leran.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +15,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: const ColorScheme.dark(),
-        useMaterial3: true,
+      theme: ThemeData.dark().copyWith(
+        cardTheme:  CardTheme(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        ),
+
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
       ),
-      home: const CardLearn(),
+      home: const ImageLearn(),
     );
   }
 }

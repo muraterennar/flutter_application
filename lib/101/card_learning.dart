@@ -6,35 +6,33 @@ class CardLearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body:  Column(
-        children: [
-        const Card(
-          margin: ProjectMargin.pageMargin,
-          color: Colors.amber,
-          shape: StadiumBorder(),
-          child: SizedBox(height: 100, width: 200)
-          ),
-          Card(
-          margin: ProjectMargin.pageMargin,
-          color: Colors.red,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          child: const SizedBox(
-            height: 100, 
-            width: 200,
-            child: Center(child: Text("Ali")),
-          )),
-         const  Card(
-          margin: ProjectMargin.pageMargin,
-          color: Colors.purple,
-          shape: CircleBorder(),
-          child: SizedBox(height: 100, width: 200))
-        ],
-      )
-    );
+        appBar: AppBar(),
+        body: const Column(
+          children: [
+           _CustomCard(
+                child: SizedBox(
+              height: 100,
+              width: 200,
+              child: Center(child: Text("Ali")),
+            ))
+          ],
+        ));
   }
 }
 
-class ProjectMargin{
+class _CustomCard extends StatelessWidget {
+  final Widget child;
+
+  const _CustomCard({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        margin: ProjectMargin.pageMargin,
+        child: child);
+  }
+}
+
+class ProjectMargin {
   static const pageMargin = EdgeInsets.all(10);
 }
