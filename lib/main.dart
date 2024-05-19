@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application/101/custom_widget_learn.dart';
+import 'package:flutter_application/101/indicator_learn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +16,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        cardTheme:  CardTheme(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: Colors.white,
         ),
-
+        cardTheme: CardTheme(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        ),
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           systemOverlayStyle: SystemUiOverlayStyle.light,
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: const CustomWidgetLearn(),
+      home: const IndicatorLearn(),
     );
   }
 }
